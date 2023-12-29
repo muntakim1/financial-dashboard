@@ -134,7 +134,8 @@ def update_graphs(stock_symbol, start_date, end_date):
         y="Close",
         title=f"{stock_symbol} Closing Price",
         labels={"Close": "Closing Price"},
-        trendline="ols",
+        trendline="ewm",
+        trendline_options=dict(halflife=2),
     )
 
     return trends_graph, bar_graph, statistical_info
